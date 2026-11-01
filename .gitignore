@@ -1,0 +1,18 @@
+
+# Bases epidemiológicas baixadas
+server/*.parquet
+server/*.parquet.zip
+server/*.parquet.tmp
+server/*.zip.tmp
+
+# Arquivos temporários
+server/*.download
+
+# Dependências e arquivos de build
+node_modules/
+dist/
+
+# Variáveis de ambiente e segredos
+.env
+.env.*
+!.env.example
