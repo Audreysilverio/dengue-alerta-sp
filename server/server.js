@@ -17,7 +17,10 @@ const PORT = process.env.PORT || 3001;
 
 app.use(
   cors({
-    origin: 'https://dengue-alerta-sp.vercel.app',
+    origin: [
+      'https://dengue-alerta-sp.vercel.app',
+      'http://localhost:5173',
+    ],
   })
 );
 

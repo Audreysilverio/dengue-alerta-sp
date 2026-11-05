@@ -137,7 +137,7 @@ const [erroUmidade, setErroUmidade] = useState('');
 
       try {
 
-       const resposta = await fetch(apiUrl('/api/clima/resumo-mensal'));
+       const resposta = await fetch(apiUrl(`/api/dengue/resumo-mensal?ano=${year}`));
 
         const resultado = await resposta.json();
 
@@ -252,7 +252,7 @@ useEffect(() => {
       try {
 
        const resposta = await fetch(
-  apiUrl(`/api/dengue/resumo-mensal?ano=${year}`)
+  apiUrl('/api/clima/resumo-mensal')
 );
 
         const resultado = await resposta.json();
