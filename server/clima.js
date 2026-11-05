@@ -8,12 +8,12 @@ const estacoes = [
   {
     codigo: 'A701',
     nome: 'Mirante de Santana',
-    arquivo: 'chuva-mirante-2026.csv',
+    arquivo: 'chuva-mirante-2026.CSV',
   },
   {
     codigo: 'A771',
     nome: 'Interlagos',
-    arquivo: 'chuva-interlagos-2026.csv',
+    arquivo: 'chuva-interlagos-2026.CSV',
   },
 ];
 
