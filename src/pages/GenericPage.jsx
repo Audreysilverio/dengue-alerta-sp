@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
-
 import Icon from '../components/Icon.jsx';
-
 import { pesquisaComunidade } from '../data/dadosMock.js';
-
 import { LineChart, BarChart } from '../components/Charts.jsx';
-
 import MapaInterativo from '../components/MapaInterativo.jsx';
+import { apiUrl } from '../config/api.js';
 
 const pageContent = {
 
@@ -140,11 +137,7 @@ const [erroUmidade, setErroUmidade] = useState('');
 
       try {
 
-        const resposta = await fetch(
-
-          `http://localhost:3001/api/dengue/resumo-mensal?ano=${year}`
-
-        );
+       const resposta = await fetch(apiUrl('/api/clima/resumo-mensal'));
 
         const resultado = await resposta.json();
 
@@ -202,11 +195,9 @@ useEffect(() => {
 
     try {
 
-      const resposta = await fetch(
-
-        'http://localhost:3001/api/clima/umidade-mensal'
-
-      );
+     const resposta = await fetch(
+  apiUrl('/api/clima/umidade-mensal')
+);
 
       const resultado = await resposta.json();
 
@@ -260,11 +251,9 @@ useEffect(() => {
 
       try {
 
-        const resposta = await fetch(
-
-          'http://localhost:3001/api/clima/resumo-mensal'
-
-        );
+       const resposta = await fetch(
+  apiUrl(`/api/dengue/resumo-mensal?ano=${year}`)
+);
 
         const resultado = await resposta.json();
 
@@ -324,7 +313,9 @@ useEffect(() => {
 
       try {
 
-        const resposta = await fetch('http://localhost:3001/api/clima/temperatura-mensal');
+        const resposta = await fetch(
+  apiUrl('/api/clima/temperatura-mensal')
+);
 
         const resultado = await resposta.json();
 

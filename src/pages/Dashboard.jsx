@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Icon from '../components/Icon.jsx';
 import { LineChart, BarChart } from '../components/Charts.jsx';
 import { pesquisaComunidade } from '../data/dadosMock.js';
+import { apiUrl } from '../config/api.js';
 
 function Metric({ icon, label, value, foot, tone }) {
   return (
@@ -46,7 +47,7 @@ export default function Dashboard({ onNavigate, year, setYear, area, setArea }) 
       setErro('');
       setDadosDengue(null);
       try {
-        const resposta = await fetch(`http://localhost:3001/api/dengue/resumo-mensal?ano=${year}`);
+        const resposta = await fetch(apiUrl(`/api/dengue/resumo-mensal?ano=${year}`));
         const resultado = await resposta.json();
         if (!resposta.ok) throw new Error(resultado.erro || 'Não foi possível consultar os dados.');
         if (ativo) setDadosDengue(resultado);
@@ -67,7 +68,7 @@ export default function Dashboard({ onNavigate, year, setYear, area, setArea }) 
       setErroChuva('');
       setDadosChuva(null);
       try {
-        const resposta = await fetch('http://localhost:3001/api/clima/resumo-mensal');
+        const resposta = await fetch(apiUrl('/api/clima/resumo-mensal'));
         const resultado = await resposta.json();
         if (!resposta.ok) throw new Error(resultado.erro || 'Não foi possível consultar dados de chuva.');
         if (ativo) setDadosChuva(resultado);
@@ -87,7 +88,9 @@ export default function Dashboard({ onNavigate, year, setYear, area, setArea }) 
       setCarregandoTemperatura(true);
       setErroTemperatura('');
       try {
-        const resposta = await fetch('http://localhost:3001/api/clima/temperatura-mensal');
+       const resposta = await fetch(
+  apiUrl('/api/clima/temperatura-mensal')
+);
         const resultado = await resposta.json();
         if (!resposta.ok) throw new Error(resultado.erro || 'Não foi possível consultar dados de temperatura.');
         if (ativo) setDadosTemperatura(resultado);
