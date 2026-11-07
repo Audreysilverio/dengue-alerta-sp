@@ -4,18 +4,24 @@ const path = require('path');
 
 const pastaDados = path.join(__dirname, 'dados');
 
-const estacoes = [
-  {
-    codigo: 'A701',
-    nome: 'Mirante de Santana',
-    arquivo: 'chuva-mirante-2026.CSV',
-  },
-  {
-    codigo: 'A771',
-    nome: 'Interlagos',
-    arquivo: 'chuva-interlagos-2026.CSV',
-  },
-];
+function obterEstacoes(ano) {
+  if (![2024, 2025, 2026].includes(ano)) {
+    throw new Error('Ano não disponível para os dados meteorológicos.');
+  }
+  
+  return [
+    {
+      codigo: 'A701',
+      nome: 'Mirante de Santana',
+      arquivo: `chuva-mirante-${ano}.CSV`,
+    },
+    {
+      codigo: 'A771',
+      nome: 'Interlagos',
+      arquivo: `chuva-interlagos-${ano}.CSV`,
+    },
+  ];
+}
 
 function lerDadosMensais(arquivo) {
   const caminho = path.join(pastaDados, arquivo);
@@ -136,12 +142,12 @@ function lerDadosMensais(arquivo) {
   }));
 }
 
-function resumoChuva() {
+function resumoChuva(ano = 2026) {
   return {
     fonte: 'INMET — estações meteorológicas automáticas',
-    ano: 2026,
+    ano,
     unidade: 'mm',
-    estacoes: estacoes.map((estacao) => ({
+    estacoes: obterEstacoes(ano).map((estacao) => ({
       codigo: estacao.codigo,
       nome: estacao.nome,
       resumoMensal: lerDadosMensais(estacao.arquivo).map((item) => ({
@@ -152,12 +158,12 @@ function resumoChuva() {
   };
 }
 
-function resumoTemperatura() {
+function resumoTemperatura(ano = 2026) {
   return {
     fonte: 'INMET — estações meteorológicas automáticas',
-    ano: 2026,
+    ano,
     unidade: '°C',
-    estacoes: estacoes.map((estacao) => ({
+    estacoes: obterEstacoes(ano).map((estacao) => ({
       codigo: estacao.codigo,
       nome: estacao.nome,
       resumoMensal: lerDadosMensais(estacao.arquivo).map((item) => ({
@@ -168,12 +174,12 @@ function resumoTemperatura() {
   };
 }
 
-function resumoUmidade() {
+function resumoUmidade(ano = 2026) {
   return {
     fonte: 'INMET — estações meteorológicas automáticas',
-    ano: 2026,
+    ano,
     unidade: '%',
-    estacoes: estacoes.map((estacao) => ({
+    estacoes: obterEstacoes(ano).map((estacao) => ({
       codigo: estacao.codigo,
       nome: estacao.nome,
       resumoMensal: lerDadosMensais(estacao.arquivo).map((item) => ({

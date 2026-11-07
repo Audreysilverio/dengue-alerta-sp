@@ -2,15 +2,17 @@
 const { DuckDBInstance } = require('@duckdb/node-api');
 const path = require('path');
 
-const arquivo = path.join(__dirname, 'DENGBR26.parquet')
-  .replace(/\\/g, '/');
-
 async function obterResumoMensal(ano = 2026) {
-  if (!Number.isInteger(ano) || ano !== 2026) {
+  if (![2024, 2025, 2026].includes(ano)) {
     throw new Error(
-      'Esta base local contém somente os dados de 2026.'
+      'Esta base local contém somente os dados de 2024, 2025 e 2026.'
     );
   }
+
+  const arquivo = path.join(
+    __dirname,
+    `DENGBR${String(ano).slice(-2)}.parquet`
+  ).replace(/\\/g, '/');
 
   const banco = await DuckDBInstance.create(':memory:');
   const conexao = await banco.connect();
@@ -23,7 +25,8 @@ async function obterResumoMensal(ano = 2026) {
         COUNT(*) AS notificacoes
       FROM read_parquet('${arquivo}')
       WHERE ID_MN_RESI = 355030
-        AND DT_NOTIFIC IS NOT NULL
+  AND DT_NOTIFIC IS NOT NULL
+  AND EXTRACT(YEAR FROM DT_NOTIFIC) = ${ano}
       GROUP BY mes
       ORDER BY mes
     `;
@@ -43,8 +46,9 @@ async function obterResumoMensal(ano = 2026) {
         MAX(DT_NOTIFIC) AS ultimaData,
         COUNT(*) AS totalNotificacoes
       FROM read_parquet('${arquivo}')
-      WHERE ID_MN_RESI = 355030
-        AND DT_NOTIFIC IS NOT NULL
+    WHERE ID_MN_RESI = 355030
+  AND DT_NOTIFIC IS NOT NULL
+  AND EXTRACT(YEAR FROM DT_NOTIFIC) = ${ano}
     `;
 
     const resultadoData = await conexao.run(consultaData);
@@ -84,7 +88,8 @@ async function obterResumoMensal(ano = 2026) {
 
       FROM read_parquet('${arquivo}')
       WHERE ID_MN_RESI = 355030
-        AND DT_NOTIFIC IS NOT NULL
+  AND DT_NOTIFIC IS NOT NULL
+  AND EXTRACT(YEAR FROM DT_NOTIFIC) = ${ano}
     `;
 
     const resultadoIndicadores =
@@ -105,7 +110,8 @@ async function obterResumoMensal(ano = 2026) {
         COUNT(*) AS total
       FROM read_parquet('${arquivo}')
       WHERE ID_MN_RESI = 355030
-        AND DT_NOTIFIC IS NOT NULL
+  AND DT_NOTIFIC IS NOT NULL
+  AND EXTRACT(YEAR FROM DT_NOTIFIC) = ${ano}
       GROUP BY CLASSI_FIN
       ORDER BY CLASSI_FIN
     `;

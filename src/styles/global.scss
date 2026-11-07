@@ -619,3 +619,341 @@ body {
   }
 }
 
+
+/* ========================================
+   PAINEL DE MACHINE LEARNING
+   Dengue Alerta SP
+======================================== */
+
+.ml-panel {
+  margin-top: 16px;
+  padding: 24px;
+}
+
+.ml-panel .panel-heading h2 {
+  font-size: 21px;
+  line-height: 1.4;
+}
+
+.ml-panel .panel-heading p {
+  font-size: 13px;
+}
+
+.ml-description {
+  margin: 22px 0;
+  padding: 16px;
+  background: #f3f8f5;
+  border-left: 3px solid #55a98b;
+  border-radius: 7px;
+  color: #60766d;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.ml-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 26px;
+}
+
+.ml-metrics > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 17px;
+  background: #f7faf8;
+  border: 1px solid #e5eee8;
+  border-radius: 10px;
+}
+
+.ml-metrics span {
+  color: #788b82;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.ml-metrics strong {
+  color: #286e5d;
+  font: 800 23px 'Manrope', sans-serif;
+}
+
+.ml-panel h3 {
+  margin: 24px 0 13px;
+  color: #29463d;
+  font: 700 16px 'Manrope', sans-serif;
+}
+
+.ml-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #e8eeea;
+  border-radius: 9px;
+}
+
+.ml-table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.ml-table th {
+  padding: 13px;
+  background: #f1f7f3;
+  color: #42675a;
+  text-align: left;
+  font-weight: 700;
+}
+
+.ml-table td {
+  padding: 13px;
+  color: #60766d;
+  border-top: 1px solid #edf1ee;
+}
+
+.ml-table tbody tr:hover {
+  background: #f8fbf9;
+}
+
+.ml-comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.ml-comparison p {
+  margin: 0;
+  padding: 15px;
+  background: #f7faf8;
+  border: 1px solid #e5eee8;
+  border-radius: 9px;
+  color: #60766d;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.ml-comparison strong {
+  color: #345b4c;
+}
+
+.ml-warning {
+  margin-top: 22px;
+  padding: 18px;
+  background: #fff9ed;
+  border: 1px solid #f0e4cb;
+  border-radius: 9px;
+}
+
+.ml-warning > strong {
+  color: #8b642b;
+  font-size: 14px;
+}
+
+.ml-warning p {
+  margin: 9px 0 0;
+  color: #887856;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.ml-panel .chart-footnote {
+  margin-top: 20px;
+  line-height: 1.6;
+}
+
+/* Ajustes para tablets */
+@media (max-width: 850px) {
+  .ml-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Ajustes para celulares */
+@media (max-width: 520px) {
+  .ml-panel {
+    padding: 16px;
+  }
+
+  .ml-metrics {
+    gap: 9px;
+  }
+
+  .ml-metrics > div {
+    padding: 12px;
+  }
+
+  .ml-metrics strong {
+    font-size: 20px;
+  }
+
+  .ml-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .ml-description,
+  .ml-warning p {
+    font-size: 12px;
+  }
+}
+
+
+/* ========================================
+   EXPLICAÇÃO DO MACHINE LEARNING
+======================================== */
+
+.ml-explanation {
+  margin-top: 25px;
+  padding: 22px;
+  background: #f7faf8;
+  border: 1px solid #e5eee8;
+  border-radius: 12px;
+}
+
+.ml-explanation > h3 {
+  margin: 0 0 12px;
+  color: #29463d;
+  font: 700 18px 'Manrope', sans-serif;
+}
+
+.ml-explanation > p {
+  margin: 0 0 20px;
+  color: #71847b;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.ml-explanation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.ml-explanation-grid article {
+  padding: 17px;
+  background: #fff;
+  border: 1px solid #e5eee8;
+  border-radius: 9px;
+}
+
+.ml-explanation-grid article strong {
+  display: block;
+  margin-bottom: 9px;
+  color: #34765f;
+  font: 700 14px 'Manrope', sans-serif;
+}
+
+.ml-explanation-grid article p {
+  margin: 0;
+  color: #71847b;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+@media (max-width: 650px) {
+  .ml-explanation {
+    padding: 16px;
+  }
+
+  .ml-explanation-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* ========================================
+   GRÁFICOS DE COMPARAÇÃO DOS ERROS
+======================================== */
+
+.ml-error-chart {
+  margin-top: 22px;
+  padding: 22px;
+  background: #f7faf8;
+  border: 1px solid #e5eee8;
+  border-radius: 12px;
+}
+
+.ml-error-chart > h3 {
+  margin: 0 0 7px;
+  color: #29463d;
+  font: 700 18px 'Manrope', sans-serif;
+}
+
+.ml-error-chart > p {
+  margin: 0 0 22px;
+  color: #81918a;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.ml-error-group {
+  padding: 17px 0;
+  border-top: 1px solid #e5eee8;
+}
+
+.ml-error-group > strong {
+  display: block;
+  margin-bottom: 17px;
+  color: #345b4c;
+  font-size: 13px;
+}
+
+.ml-error-row {
+  display: grid;
+  grid-template-columns: 110px minmax(60px, 1fr) 85px;
+  align-items: center;
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.ml-error-row > span {
+  color: #71847b;
+  font-size: 12px;
+}
+
+.ml-error-row > b {
+  color: #345b4c;
+  font-size: 12px;
+  text-align: right;
+}
+
+.ml-error-track {
+  height: 12px;
+  overflow: hidden;
+  background: #e8efeb;
+  border-radius: 20px;
+}
+
+.ml-error-fill {
+  height: 100%;
+  min-width: 3px;
+  border-radius: 20px;
+  transition: width 0.4s ease;
+}
+
+.ml-error-fill.ridge {
+  background: #d18a65;
+}
+
+.ml-error-fill.anterior {
+  background: #45a77e;
+}
+
+@media (max-width: 520px) {
+  .ml-error-chart {
+    padding: 15px;
+  }
+
+  .ml-error-row {
+    grid-template-columns: 85px minmax(40px, 1fr) 70px;
+    gap: 7px;
+  }
+
+  .ml-error-row > span,
+  .ml-error-row > b {
+    font-size: 10px;
+  }
+}

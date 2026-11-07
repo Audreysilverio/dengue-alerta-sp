@@ -1,6 +1,8 @@
-
 const express = require('express');
 const cors = require('cors');
+const fs = require('fs');
+const path = require('path');
+
 require('dotenv').config();
 
 const {
@@ -12,6 +14,8 @@ const {
 const { obterIndicadores } = require('./dados');
 const { obterResumoMensal } = require('./servicoDengue');
 
+const { calcularPrevisao } = require('./previsao');
+const { obterBaseIntegrada } = require('./baseIntegrada');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -109,6 +113,30 @@ app.get('/api/dengue/amostra', async (req, res) => {
   }
 });
 
+// Previsão exploratória de notificações de dengue
+app.get('/api/dengue/previsao', async (req, res) => {
+  try {
+    const resumo = await obterResumoMensal(2026);
+
+    const previsao = calcularPrevisao(resumo.resumoMensal, 3);
+
+    res.json({
+      fonte: resumo.fonte,
+      municipio: resumo.municipio,
+      anoBase: 2026,
+      ...previsao,
+    });
+  } catch (erro) {
+    console.error('Erro ao calcular previsão:', erro);
+
+    res.status(500).json({
+      erro: 'Não foi possível calcular a previsão de dengue.',
+      detalhe: erro.message,
+    });
+  }
+});
+
+
 // Resumo mensal usando a base Parquet local
 app.get('/api/dengue/resumo-mensal', async (req, res) => {
   try {
@@ -124,6 +152,47 @@ app.get('/api/dengue/resumo-mensal', async (req, res) => {
     });
   }
 });
+
+// Base integrada para análise de dados e Machine Learning
+app.get('/api/dengue/base-integrada', async (req, res) => {
+  try {
+    const base = await obterBaseIntegrada(2026);
+    res.json(base);
+  } catch (erro) {
+    console.error('Erro na base integrada:', erro);
+
+    res.status(500).json({
+      erro: 'Não foi possível integrar os dados.',
+      detalhe: erro.message,
+    });
+  }
+});
+
+
+// Resultados da avaliação do modelo de Machine Learning
+app.get('/api/dengue/resultado-modelo', (req, res) => {
+  try {
+    const caminho = path.join(
+      __dirname,
+      'dados',
+      'resultado_modelo.json'
+    );
+
+    const resultado = JSON.parse(
+      fs.readFileSync(caminho, 'utf8')
+    );
+
+    res.json(resultado);
+  } catch (erro) {
+    console.error('Erro ao carregar resultado do modelo:', erro);
+
+    res.status(500).json({
+      erro: 'Não foi possível carregar os resultados do modelo.',
+      detalhe: erro.message
+    });
+  }
+});
+
 
 // Inicia o servidor
 app.listen(PORT, () => {

@@ -1,0 +1,290 @@
+[
+  {
+    "mes": "2024-02",
+    "mesDoAno": 2,
+    "chuvaAnterior": 342.7,
+    "temperaturaAnterior": 22.65,
+    "umidadeAnterior": 77,
+    "notificacoesAnteriores": 6861,
+    "notificacoes": 34088
+  },
+  {
+    "mes": "2024-03",
+    "mesDoAno": 3,
+    "chuvaAnterior": 243.2,
+    "temperaturaAnterior": 23.25,
+    "umidadeAnterior": 77.25,
+    "notificacoesAnteriores": 34088,
+    "notificacoes": 119462
+  },
+  {
+    "mes": "2024-04",
+    "mesDoAno": 4,
+    "chuvaAnterior": 168.6,
+    "temperaturaAnterior": 23.15,
+    "umidadeAnterior": 78.44999999999999,
+    "notificacoesAnteriores": 119462,
+    "notificacoes": 200203
+  },
+  {
+    "mes": "2024-05",
+    "mesDoAno": 5,
+    "chuvaAnterior": 45.4,
+    "temperaturaAnterior": 22.299999999999997,
+    "umidadeAnterior": 74.85,
+    "notificacoesAnteriores": 200203,
+    "notificacoes": 189479
+  },
+  {
+    "mes": "2024-06",
+    "mesDoAno": 6,
+    "chuvaAnterior": 57.7,
+    "temperaturaAnterior": 21.1,
+    "umidadeAnterior": 69.55,
+    "notificacoesAnteriores": 189479,
+    "notificacoes": 53736
+  },
+  {
+    "mes": "2024-07",
+    "mesDoAno": 7,
+    "chuvaAnterior": 2.9,
+    "temperaturaAnterior": 19.5,
+    "umidadeAnterior": 66.4,
+    "notificacoesAnteriores": 53736,
+    "notificacoes": 14358
+  },
+  {
+    "mes": "2024-08",
+    "mesDoAno": 8,
+    "chuvaAnterior": 69.7,
+    "temperaturaAnterior": 17,
+    "umidadeAnterior": 73.35,
+    "notificacoesAnteriores": 14358,
+    "notificacoes": 6045
+  },
+  {
+    "mes": "2024-09",
+    "mesDoAno": 9,
+    "chuvaAnterior": 59.5,
+    "temperaturaAnterior": 18.25,
+    "umidadeAnterior": 61.85,
+    "notificacoesAnteriores": 6045,
+    "notificacoes": 3462
+  },
+  {
+    "mes": "2024-10",
+    "mesDoAno": 10,
+    "chuvaAnterior": 21.3,
+    "temperaturaAnterior": 21.799999999999997,
+    "umidadeAnterior": 61.15,
+    "notificacoesAnteriores": 3462,
+    "notificacoes": 2362
+  },
+  {
+    "mes": "2024-11",
+    "mesDoAno": 11,
+    "chuvaAnterior": 135.3,
+    "temperaturaAnterior": 20.1,
+    "umidadeAnterior": 73.9,
+    "notificacoesAnteriores": 2362,
+    "notificacoes": 1639
+  },
+  {
+    "mes": "2024-12",
+    "mesDoAno": 12,
+    "chuvaAnterior": 143.10000000000002,
+    "temperaturaAnterior": 10.85,
+    "umidadeAnterior": 35.2,
+    "notificacoesAnteriores": 1639,
+    "notificacoes": 1466
+  },
+  {
+    "mes": "2025-01",
+    "mesDoAno": 1,
+    "chuvaAnterior": 216.8,
+    "temperaturaAnterior": 22.1,
+    "umidadeAnterior": 77.7,
+    "notificacoesAnteriores": 1466,
+    "notificacoes": 3045
+  },
+  {
+    "mes": "2025-02",
+    "mesDoAno": 2,
+    "chuvaAnterior": 232.10000000000002,
+    "temperaturaAnterior": 22.9,
+    "umidadeAnterior": 76,
+    "notificacoesAnteriores": 3045,
+    "notificacoes": 5828
+  },
+  {
+    "mes": "2025-03",
+    "mesDoAno": 3,
+    "chuvaAnterior": 220.3,
+    "temperaturaAnterior": 24.6,
+    "umidadeAnterior": 72.95,
+    "notificacoesAnteriores": 5828,
+    "notificacoes": 16022
+  },
+  {
+    "mes": "2025-04",
+    "mesDoAno": 4,
+    "chuvaAnterior": 100.4,
+    "temperaturaAnterior": 22.799999999999997,
+    "umidadeAnterior": 76.05,
+    "notificacoesAnteriores": 16022,
+    "notificacoes": 18726
+  },
+  {
+    "mes": "2025-05",
+    "mesDoAno": 5,
+    "chuvaAnterior": 203.8,
+    "temperaturaAnterior": 20.200000000000003,
+    "umidadeAnterior": 81.05000000000001,
+    "notificacoesAnteriores": 18726,
+    "notificacoes": 11779
+  },
+  {
+    "mes": "2025-06",
+    "mesDoAno": 6,
+    "chuvaAnterior": 29.8,
+    "temperaturaAnterior": 18.85,
+    "umidadeAnterior": 75.05,
+    "notificacoesAnteriores": 11779,
+    "notificacoes": 4012
+  },
+  {
+    "mes": "2025-07",
+    "mesDoAno": 7,
+    "chuvaAnterior": 72.9,
+    "temperaturaAnterior": 16.95,
+    "umidadeAnterior": 75.69999999999999,
+    "notificacoesAnteriores": 4012,
+    "notificacoes": 1648
+  },
+  {
+    "mes": "2025-08",
+    "mesDoAno": 8,
+    "chuvaAnterior": 13.3,
+    "temperaturaAnterior": 15.25,
+    "umidadeAnterior": 74.95,
+    "notificacoesAnteriores": 1648,
+    "notificacoes": 1262
+  },
+  {
+    "mes": "2025-09",
+    "mesDoAno": 9,
+    "chuvaAnterior": 19.700000000000003,
+    "temperaturaAnterior": 16.7,
+    "umidadeAnterior": 73.05000000000001,
+    "notificacoesAnteriores": 1262,
+    "notificacoes": 1519
+  },
+  {
+    "mes": "2025-10",
+    "mesDoAno": 10,
+    "chuvaAnterior": 55.4,
+    "temperaturaAnterior": 18.65,
+    "umidadeAnterior": 71.8,
+    "notificacoesAnteriores": 1519,
+    "notificacoes": 1379
+  },
+  {
+    "mes": "2025-11",
+    "mesDoAno": 11,
+    "chuvaAnterior": 121,
+    "temperaturaAnterior": 18.85,
+    "umidadeAnterior": 74.8,
+    "notificacoesAnteriores": 1379,
+    "notificacoes": 1547
+  },
+  {
+    "mes": "2025-12",
+    "mesDoAno": 12,
+    "chuvaAnterior": 64,
+    "temperaturaAnterior": 19.8,
+    "umidadeAnterior": 74.25,
+    "notificacoesAnteriores": 1547,
+    "notificacoes": 1201
+  },
+  {
+    "mes": "2026-01",
+    "mesDoAno": 1,
+    "chuvaAnterior": 188,
+    "temperaturaAnterior": 23.35,
+    "umidadeAnterior": 71.1,
+    "notificacoesAnteriores": 1201,
+    "notificacoes": 1004
+  },
+  {
+    "mes": "2026-02",
+    "mesDoAno": 2,
+    "chuvaAnterior": 256.4,
+    "temperaturaAnterior": 22.15,
+    "umidadeAnterior": 76.2,
+    "notificacoesAnteriores": 1004,
+    "notificacoes": 1613
+  },
+  {
+    "mes": "2026-03",
+    "mesDoAno": 3,
+    "chuvaAnterior": 188.9,
+    "temperaturaAnterior": 22.799999999999997,
+    "umidadeAnterior": 79,
+    "notificacoesAnteriores": 1613,
+    "notificacoes": 2319
+  },
+  {
+    "mes": "2026-04",
+    "mesDoAno": 4,
+    "chuvaAnterior": 169.7,
+    "temperaturaAnterior": 21.55,
+    "umidadeAnterior": 79.15,
+    "notificacoesAnteriores": 2319,
+    "notificacoes": 2210
+  },
+  {
+    "mes": "2026-05",
+    "mesDoAno": 5,
+    "chuvaAnterior": 52.7,
+    "temperaturaAnterior": 21.35,
+    "umidadeAnterior": 74.5,
+    "notificacoesAnteriores": 2210,
+    "notificacoes": 1690
+  },
+  {
+    "mes": "2026-06",
+    "mesDoAno": 6,
+    "chuvaAnterior": 62,
+    "temperaturaAnterior": 18.1,
+    "umidadeAnterior": 79.5,
+    "notificacoesAnteriores": 1690,
+    "notificacoes": 428
+  },
+  {
+    "mes": "2026-07",
+    "mesDoAno": 7,
+    "chuvaAnterior": 128.3,
+    "temperaturaAnterior": 16.5,
+    "umidadeAnterior": 78.65,
+    "notificacoesAnteriores": 428,
+    "notificacoes": 406
+  },
+  {
+    "mes": "2026-08",
+    "mesDoAno": 8,
+    "chuvaAnterior": 13.2,
+    "temperaturaAnterior": 17.4,
+    "umidadeAnterior": 71.3,
+    "notificacoesAnteriores": 406,
+    "notificacoes": 392
+  },
+  {
+    "mes": "2026-09",
+    "mesDoAno": 9,
+    "chuvaAnterior": 48.9,
+    "temperaturaAnterior": 19.700000000000003,
+    "umidadeAnterior": 72.9,
+    "notificacoesAnteriores": 392,
+    "notificacoes": 391
+  }
+]

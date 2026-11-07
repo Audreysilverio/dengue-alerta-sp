@@ -1,9 +1,15 @@
-
-# Bases epidemiológicas baixadas
+# Bases epidemiológicas
 server/*.parquet
+!server/DENGBR24.parquet
+!server/DENGBR25.parquet
+!server/DENGBR26.parquet
+
 server/*.parquet.zip
 server/*.parquet.tmp
 server/*.zip.tmp
+
+# Base CSV temporária de 2024
+server/temporario2024/
 
 # Arquivos temporários
 server/*.download
@@ -17,3 +23,6 @@ dist/
 .env.*
 !.env.example
 !server/DENGBR26.parquet
+
+# Base CSV temporária de 2024 (não enviar ao GitHub)
+server/temporario2024/

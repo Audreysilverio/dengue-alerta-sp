@@ -1,0 +1,71 @@
+{
+  "fonte": "Ministério da Saúde — SINAN/Dengue e INMET",
+  "municipio": "São Paulo",
+  "codigoMunicipio": "355030",
+  "algoritmo": "Regressão Ridge",
+  "regularizacao": 1,
+  "totalRegistros": 32,
+  "registrosTreinamento": 24,
+  "registrosTeste": 8,
+  "observacao": "Avaliação exploratória temporal; resultados não representam previsão operacional validada.",
+  "metricas": {
+    "ridge": {
+      "mae": 3558.04,
+      "rmse": 4368.73
+    },
+    "mesAnterior": {
+      "mae": 405.38,
+      "rmse": 585.76
+    }
+  },
+  "previsoes": [
+    {
+      "mes": "2026-02",
+      "real": 1613,
+      "ridge": 10800,
+      "mesAnterior": 1004
+    },
+    {
+      "mes": "2026-03",
+      "real": 2319,
+      "ridge": 7974,
+      "mesAnterior": 1613
+    },
+    {
+      "mes": "2026-04",
+      "real": 2210,
+      "ridge": 6386,
+      "mesAnterior": 2319
+    },
+    {
+      "mes": "2026-05",
+      "real": 1690,
+      "ridge": 3308,
+      "mesAnterior": 2210
+    },
+    {
+      "mes": "2026-06",
+      "real": 428,
+      "ridge": 2635,
+      "mesAnterior": 1690
+    },
+    {
+      "mes": "2026-07",
+      "real": 406,
+      "ridge": 2957,
+      "mesAnterior": 428
+    },
+    {
+      "mes": "2026-08",
+      "real": 392,
+      "ridge": 1650,
+      "mesAnterior": 406
+    },
+    {
+      "mes": "2026-09",
+      "real": 391,
+      "ridge": 2202,
+      "mesAnterior": 392
+    }
+  ]
+}

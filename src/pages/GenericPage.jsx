@@ -44,10 +44,10 @@ const pageContent = {
     title: 'Tendências',
 
     intro:
+      
+      'Explore a evolução mensal das notificações de dengue e consulte uma estimativa exploratória baseada nos últimos meses completos.',
 
-      'A análise de tendência depende de uma série histórica consistente. Não há previsão epidemiológica calculada nesta versão.',
-
-  },
+},
 
   prevencao: {
 
@@ -95,23 +95,23 @@ function formatarMes(mes) {
 
 export default function GenericPage({ page, onNavigate, year, area }) {
 
-  const [dadosDengue, setDadosDengue] = useState(null);
+const [dadosDengue, setDadosDengue] = useState(null);
 
-  const [carregando, setCarregando] = useState(false);
+const [carregando, setCarregando] = useState(false);
 
-  const [erro, setErro] = useState('');
+const [erro, setErro] = useState('');
 
-  const [dadosChuva, setDadosChuva] = useState(null);
+const [dadosChuva, setDadosChuva] = useState(null);
 
-  const [carregandoChuva, setCarregandoChuva] = useState(false);
+const [carregandoChuva, setCarregandoChuva] = useState(false);
 
-  const [erroChuva, setErroChuva] = useState('');
+const [erroChuva, setErroChuva] = useState('');
 
-  const [dadosTemperatura, setDadosTemperatura] = useState(null);
+const [dadosTemperatura, setDadosTemperatura] = useState(null);
 
-  const [carregandoTemperatura, setCarregandoTemperatura] = useState(false);
+const [carregandoTemperatura, setCarregandoTemperatura] = useState(false);
 
-  const [erroTemperatura, setErroTemperatura] = useState('');
+const [erroTemperatura, setErroTemperatura] = useState('');
 
 const [tarefasConcluidas, setTarefasConcluidas] = useState([]);
 
@@ -121,7 +121,13 @@ const [carregandoUmidade, setCarregandoUmidade] = useState(false);
 
 const [erroUmidade, setErroUmidade] = useState('');
 
-  // Busca os dados de dengue
+const [dadosPrevisao, setDadosPrevisao] = useState(null);
+
+const [carregandoPrevisao, setCarregandoPrevisao] = useState(false);
+
+const [erroPrevisao, setErroPrevisao] = useState(''); 
+
+// Busca os dados de dengue
 
   useEffect(() => {
 
@@ -178,6 +184,46 @@ const [erroUmidade, setErroUmidade] = useState('');
     };
 
   }, [page, year]);
+
+  useEffect(() => {
+  if (page !== 'tendencias') return;
+
+  let ativo = true;
+
+  async function carregarPrevisao() {
+    setCarregandoPrevisao(true);
+    setErroPrevisao('');
+
+    try {
+      const resposta = await fetch(apiUrl('/api/dengue/previsao'));
+      const resultado = await resposta.json();
+
+      if (!resposta.ok) {
+        throw new Error(resultado.erro || 'Erro ao consultar previsão.');
+      }
+
+      if (ativo) {
+        setDadosPrevisao(resultado);
+      }
+    } catch (erroConsulta) {
+      if (ativo) {
+        setErroPrevisao('Não foi possível carregar a estimativa.');
+      }
+    } finally {
+      if (ativo) {
+        setCarregandoPrevisao(false);
+      }
+    }
+  }
+
+  carregarPrevisao();
+
+  return () => {
+    ativo = false;
+  };
+}, [page]);
+
+
 
 // Busca os dados mensais de umidade relativa do INMET
 
@@ -820,10 +866,8 @@ const dadosGraficoUmidade = umidadeMirante?.resumoMensal
 
               <span>
 
-                Os indicadores descrevem notificações registradas. Não representam
-
-                previsão epidemiológica nem confirmação individual de casos.
-
+                Os indicadores descrevem notificações registradas.
+                A estimativa abaixo é exploratória e não representa previsão epidemiológica oficial.
               </span>
 
             </div>
@@ -958,6 +1002,38 @@ const dadosGraficoUmidade = umidadeMirante?.resumoMensal
 
               </section>
 
+              <section className="panel text-panel">
+  <span className="panel-kicker">ESTIMATIVA EXPLORATÓRIA</span>
+  <h2>Estimativa para os próximos meses</h2>
+
+  {carregandoPrevisao && <p>Carregando estimativa...</p>}
+
+  {erroPrevisao && <p role="alert">{erroPrevisao}</p>}
+
+  {dadosPrevisao && (
+    <>
+      <div className="about-grid">
+        {dadosPrevisao.previsoes.map((item) => (
+          <div className="about-stat" key={item.periodo}>
+            <strong>
+              {item.notificacoesEstimadas.toLocaleString('pt-BR')}
+            </strong>
+            <span>{item.periodo}</span>
+          </div>
+        ))}
+      </div>
+
+      <p className="chart-footnote">
+        Método: {dadosPrevisao.metodo}.
+        {' '}Meses utilizados: {dadosPrevisao.mesesUtilizados.join(', ')}.
+      </p>
+
+      <p className="chart-footnote">{dadosPrevisao.aviso}</p>
+    </>
+  )}
+</section>
+
+
               <section className="panel text-panel trends-interpretation">
 
                 <span className="panel-kicker">INTERPRETAÇÃO</span>
@@ -990,9 +1066,7 @@ const dadosGraficoUmidade = umidadeMirante?.resumoMensal
 
                 <div className="chart-footnote">
 
-                  Esta versão não calcula risco local nem apresenta previsão
-
-                  epidemiológica validada.
+                  A estimativa apresentada não é uma previsão epidemiológica validada nem calcula risco local.
 
                 </div>
 

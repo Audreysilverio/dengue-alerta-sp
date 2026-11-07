@@ -3,6 +3,7 @@ import Icon from '../components/Icon.jsx';
 import { LineChart, BarChart } from '../components/Charts.jsx';
 import { pesquisaComunidade } from '../data/dadosMock.js';
 import { apiUrl } from '../config/api.js';
+import PainelMachineLearning from '../components/PainelMachineLearning.jsx';
 
 function Metric({ icon, label, value, foot, tone }) {
   return (
@@ -205,6 +206,8 @@ export default function Dashboard({ onNavigate, year, setYear, area, setArea }) 
           <div className="research-note">Pesquisa de percepção: esses percentuais não são indicadores de casos de dengue.</div>
         </article>
       </section>
+
+      <PainelMachineLearning />
 
       <footer className="page-footer"><span>Dengue Alerta SP <b>·</b> Projeto Integrador UNIVESP</span><span>Protótipo acadêmico · Notificações e variáveis climáticas integradas; mapa ilustrativo</span></footer>
     </>
